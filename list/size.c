@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   size.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 19:48:25 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 20:06:58 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/24 20:10:04 by erijania          #+#    #+#             */
+/*   Updated: 2024/05/24 20:28:59 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../list.h"
-#include <stdlib.h>
 
-t_list	*list_create(t_item *item)
+int	list_size(t_list *list)
 {
-	t_list	*_list_create;
+	int		_list_size;
+	t_item	*item;
 
-	_list_create = (t_list *)malloc(sizeof(t_list));
-	if (!_list_create)
-		return (0);
-	_list_create->first = 0;
-	_list_create->last = 0;
-	if (item)
+	_list_size = 0;
+	if (!list)
+		return (_list_size);
+	item = list->first;
+	while (item)
 	{
-		_list_create->first = item;
-		_list_create->last = item;
+		item = item->next;
+		_list_size++;
 	}
-	return (_list_create);
+	return (_list_size);
 }

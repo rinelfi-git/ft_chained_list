@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   add.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 19:48:25 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 20:06:58 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
+/*   Updated: 2024/05/24 20:45:46 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../list.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-t_list	*list_create(t_item *item)
+int	list_add(t_list *list, t_item *item)
 {
-	t_list	*_list_create;
+	t_item	*list_item;
 
-	_list_create = (t_list *)malloc(sizeof(t_list));
-	if (!_list_create)
+	if (!list || !item)
 		return (0);
-	_list_create->first = 0;
-	_list_create->last = 0;
-	if (item)
+	list_item = list->first;
+	while (list_item != list->last && list_item != item)
+		list_item = list_item->next;
+	if (list_item == item)
+		return (0);
+	if (!list_item)
 	{
-		_list_create->first = item;
-		_list_create->last = item;
+		printf("FIRST\n");
+		list->first = item;
+		list->last = item;
 	}
-	return (_list_create);
+	else
+	{
+		list_item->next = item;
+		item->prev = list_item;
+		item->next = 0;
+		list->last = item;
+	}
+	return (1);
 }
