@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 19:26:03 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 19:34:46 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/24 19:37:19 by erijania          #+#    #+#             */
+/*   Updated: 2024/05/24 19:45:56 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#include "../list.h"
+#include <stdlib.h>
 
-typedef struct s_list	t_list;
-typedef struct s_item	t_item;
-typedef char *			t_type;
-struct s_list
+t_item	*item_create(t_type content)
 {
-	t_item	*first;
-	t_item	*last;
-};
-struct s_item
-{
-	t_type	content;
-	t_item	*prev;
-	t_item	*next;
-};
-t_list	*list_create(t_item *item);
-t_item	*item_create(t_type content);
+	t_item	*_item_create;
 
-#endif
+	_item_create = (t_item *) malloc(sizeof(t_item));
+	if (!_item_create)
+		return (0);
+	_item_create->content = content;
+	_item_create->prev = 0;
+	_item_create->next = 0;
+	return (_item_create);
+}
