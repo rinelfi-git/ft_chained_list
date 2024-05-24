@@ -4,7 +4,8 @@ AR		=	ar rcs
 NAME	=	liblist.a
 HEADER	=	list.h
 DEL		=	rm -rf
-SOURCES	=	item/create.c
+SOURCES	=	item/create.c \
+			list/create.c
 OBJECTS	=	$(SOURCES:.c=.o)
 
 all : $(NAME)
