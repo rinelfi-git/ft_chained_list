@@ -6,6 +6,8 @@ HEADER	=	list.h
 DEL		=	rm -rf
 SOURCES	=	item/create.c \
 			item/get.c \
+			item/remove.c \
+			list/add_at.c \
 			list/create.c \
 			list/size.c \
 			list/add.c
@@ -23,7 +25,7 @@ clean :
 	@$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
-	$(CC) $(CFLAGS) main.c -L. -llist
+	$(CC) $(CFLAGS) main.c -L. -llist -o main
 
 fclean : clean
 	@$(DEL) $(NAME)
