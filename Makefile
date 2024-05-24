@@ -25,7 +25,7 @@ clean :
 	@$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
-	$(CC) $(CFLAGS) main.c -L. -llist -o main
+	$(CC) $(CFLAGS) main.c -L. -llist
 
 fclean : clean
 	@$(DEL) $(NAME)

@@ -6,12 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 20:45:46 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:09:55 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../list.h"
-#include <stdio.h>
 
 int	list_add(t_list *list, t_item *item)
 {
@@ -26,7 +25,6 @@ int	list_add(t_list *list, t_item *item)
 		return (0);
 	if (!list_item)
 	{
-		printf("FIRST\n");
 		list->first = item;
 		list->last = item;
 	}

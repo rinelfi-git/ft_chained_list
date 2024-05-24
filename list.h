@@ -6,13 +6,12 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:26:03 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 21:43:56 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:09:44 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
-# include <stdio.h>
 
 typedef struct s_list	t_list;
 typedef struct s_item	t_item;
