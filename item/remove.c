@@ -6,20 +6,20 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:57:47 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 21:43:46 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../array.h"
 
-static t_item	*detach(t_list *list, t_item *item)
+static t_item	*detach(t_array *array, t_item *item)
 {
 	if (!item)
 		return (0);
-	if (list->first == item)
-		list->first = item->next;
-	if (list->last == item)
-		list->last = item->prev;
+	if (array->first == item)
+		array->first = item->next;
+	if (array->last == item)
+		array->last = item->prev;
 	if (item->prev)
 		item->prev->next = item->next;
 	if (item->next)
@@ -29,13 +29,13 @@ static t_item	*detach(t_list *list, t_item *item)
 	return (item);
 }
 
-static t_item	*remove_asc(t_list *list, int index)
+static t_item	*remove_asc(t_array *array, int index)
 {
 	int		i;
 	t_item	*item;
 
 	i = 0;
-	item = list->first;
+	item = array->first;
 	while (item && i != index)
 	{
 		item = item->next;
@@ -43,16 +43,16 @@ static t_item	*remove_asc(t_list *list, int index)
 	}
 	if (i != index)
 		return (0);
-	return (detach(list, item));
+	return (detach(array, item));
 }
 
-static t_item	*remove_desc(t_list *list, int index)
+static t_item	*remove_desc(t_array *array, int index)
 {
 	int		i;
 	t_item	*item;
 
 	i = -1;
-	item = list->last;
+	item = array->last;
 	while (item && i != index)
 	{
 		item = item->next;
@@ -60,14 +60,14 @@ static t_item	*remove_desc(t_list *list, int index)
 	}
 	if (i != index)
 		return (0);
-	return (detach(list, item));
+	return (detach(array, item));
 }
 
-t_item	*item_remove(t_list *list, int index)
+t_item	*item_remove(t_array *array, int index)
 {
-	if (!list)
+	if (!array)
 		return (0);
 	if (index >= 0)
-		return (remove_asc(list, index));
-	return (remove_desc(list, index));
+		return (remove_asc(array, index));
+	return (remove_desc(array, index));
 }

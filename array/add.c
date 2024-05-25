@@ -6,34 +6,34 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 22:09:55 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../array.h"
 
-int	list_add(t_list *list, t_item *item)
+int	array_add(t_array *array, t_item *item)
 {
-	t_item	*list_item;
+	t_item	*array_item;
 
-	if (!list || !item)
+	if (!array || !item)
 		return (0);
-	list_item = list->first;
-	while (list_item != list->last && list_item != item)
-		list_item = list_item->next;
-	if (list_item == item)
+	array_item = array->first;
+	while (array_item != array->last && array_item != item)
+		array_item = array_item->next;
+	if (array_item == item)
 		return (0);
-	if (!list_item)
+	if (!array_item)
 	{
-		list->first = item;
-		list->last = item;
+		array->first = item;
+		array->last = item;
 	}
 	else
 	{
-		list_item->next = item;
-		item->prev = list_item;
+		array_item->next = item;
+		item->prev = array_item;
 		item->next = 0;
-		list->last = item;
+		array->last = item;
 	}
 	return (1);
 }

@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 07:42:32 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 07:53:36 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../array.h"
 #include <stdlib.h>
 
 char	*c_char(char value)

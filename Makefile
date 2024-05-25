@@ -1,8 +1,8 @@
 CC		=	cc
 CFLAGS	=	-Werror -Wextra -Wall
 AR		=	ar rcs
-NAME	=	liblist.a
-HEADER	=	list.h
+NAME	=	libarray.a
+HEADER	=	array.h
 DEL		=	rm -rf
 SOURCES	=	item/create.c \
 			item/get.c \
@@ -11,11 +11,11 @@ SOURCES	=	item/create.c \
 			item/c_int.c \
 			item/c_long.c \
 			item/c_char.c \
-			list/add_at.c \
-			list/create.c \
-			list/size.c \
-			list/destruct.c \
-			list/add.c
+			array/add_at.c \
+			array/create.c \
+			array/size.c \
+			array/destruct.c \
+			array/add.c
 OBJECTS	=	$(SOURCES:.c=.o)
 
 all : $(NAME)
@@ -30,7 +30,7 @@ clean :
 	@$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
-	$(CC) $(CFLAGS) main.c -L. -llist
+	$(CC) $(CFLAGS) main.c -L. -larray
 
 fclean : clean
 	@$(DEL) $(NAME)

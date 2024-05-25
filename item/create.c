@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:37:19 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 07:41:13 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../array.h"
 #include <stdlib.h>
 
 t_item	*item_create(void *value, void (*f_value)(void *))

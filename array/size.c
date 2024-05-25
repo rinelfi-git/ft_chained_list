@@ -6,25 +6,25 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:10:04 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/24 20:28:59 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../array.h"
 
-int	list_size(t_list *list)
+int	array_size(t_array *array)
 {
-	int		_list_size;
+	int		_array_size;
 	t_item	*item;
 
-	_list_size = 0;
-	if (!list)
-		return (_list_size);
-	item = list->first;
+	_array_size = 0;
+	if (!array)
+		return (_array_size);
+	item = array->first;
 	while (item)
 	{
 		item = item->next;
-		_list_size++;
+		_array_size++;
 	}
-	return (_list_size);
+	return (_array_size);
 }

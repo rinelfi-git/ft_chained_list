@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destruct.c                                         :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 06:58:18 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 07:20:12 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/24 19:48:25 by erijania          #+#    #+#             */
+/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../array.h"
 #include <stdlib.h>
 
-void	list_destruct(t_list *list)
+t_array	*array_create(t_item *item)
 {
-	t_item	*item;
+	t_array	*_array_create;
 
-	if (!list)
-		return ;
-	item = item_remove(list, 0);
-	while (item)
+	_array_create = (t_array *)malloc(sizeof(t_array));
+	if (!_array_create)
+		return (0);
+	_array_create->first = 0;
+	_array_create->last = 0;
+	if (item)
 	{
-		item_destruct(item);
-		item = item_remove(list, 0);
+		_array_create->first = item;
+		_array_create->last = item;
 	}
-	free(list);
-	list = 0;
+	return (_array_create);
 }
