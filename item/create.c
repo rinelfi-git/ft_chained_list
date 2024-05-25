@@ -6,25 +6,25 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:37:19 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:22:16 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 #include <stdlib.h>
 
-t_item	*item_create(void *value, void (*f_value)(void *))
+t_item	*item_create(void *val, void (*del)(void *))
 {
-	t_item	*_item_create;
+	t_item	*new;
 
-	_item_create = (t_item *) malloc(sizeof(t_item));
-	if (!_item_create)
+	new = (t_item *) malloc(sizeof(t_item));
+	if (!new)
 		return (0);
-	_item_create->value = value;
-	_item_create->f_value = 0;
-	_item_create->prev = 0;
-	_item_create->next = 0;
-	if (f_value)
-		_item_create->f_value = f_value;
-	return (_item_create);
+	new->val = val;
+	new->del = 0;
+	new->prev = 0;
+	new->next = 0;
+	if (del)
+		new->del = del;
+	return (new);
 }

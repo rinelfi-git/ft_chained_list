@@ -16,6 +16,7 @@ SOURCES	=	item/create.c \
 			array/create.c \
 			array/size.c \
 			array/destruct.c \
+			array/for_each.c \
 			array/add.c
 OBJECTS	=	$(SOURCES:.c=.o)
 

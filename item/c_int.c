@@ -6,20 +6,20 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 07:42:32 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:21:50 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 #include <stdlib.h>
 
-int	*c_int(int value)
+int	*c_int(int val)
 {
-	int	*_c_int;
+	int	*new;
 
-	_c_int = (int *) malloc(sizeof(int));
-	if (!_c_int)
+	new = (int *) malloc(sizeof(int));
+	if (!new)
 		return (0);
-	*_c_int = value;
-	return (_c_int);
+	*new = val;
+	return (new);
 }

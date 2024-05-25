@@ -6,25 +6,25 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 06:58:18 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:20:31 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 #include <stdlib.h>
 
-void	array_destruct(t_array *array)
+void	array_destruct(t_array *arr)
 {
-	t_item	*item;
+	t_item	*elt;
 
-	if (!array)
+	if (!arr)
 		return ;
-	item = item_remove(array, 0);
-	while (item)
+	elt = item_remove(arr, 0);
+	while (elt)
 	{
-		item_destruct(item);
-		item = item_remove(array, 0);
+		item_destruct(elt);
+		elt = item_remove(arr, 0);
 	}
-	free(array);
-	array = 0;
+	free(arr);
+	arr = 0;
 }

@@ -6,34 +6,34 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:19:46 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 
-int	array_add(t_array *array, t_item *item)
+int	array_add(t_array *arr, t_item *it)
 {
-	t_item	*array_item;
+	t_item	*elt;
 
-	if (!array || !item)
+	if (!arr || !it)
 		return (0);
-	array_item = array->first;
-	while (array_item != array->last && array_item != item)
-		array_item = array_item->next;
-	if (array_item == item)
+	elt = arr->first;
+	while (elt != arr->last && elt != it)
+		elt = elt->next;
+	if (elt == it)
 		return (0);
-	if (!array_item)
+	if (!elt)
 	{
-		array->first = item;
-		array->last = item;
+		arr->first = it;
+		arr->last = it;
 	}
 	else
 	{
-		array_item->next = item;
-		item->prev = array_item;
-		item->next = 0;
-		array->last = item;
+		elt->next = it;
+		it->prev = elt;
+		it->next = 0;
+		arr->last = it;
 	}
 	return (1);
 }

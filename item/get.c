@@ -6,51 +6,51 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:27:58 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:23:38 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 
-static t_item	*get_asc(t_array *array, int index)
+static t_item	*get_asc(t_array *arr, int index)
 {
 	int		i;
-	t_item	*item;
+	t_item	*loop;
 
 	i = 0;
-	item = array->first;
-	while (item && i != index)
+	loop = arr->first;
+	while (loop && i != index)
 	{
-		item = item->next;
+		loop = loop->next;
 		i++;
 	}
 	if (i == index)
-		return (item);
+		return (loop);
 	return (0);
 }
 
-static t_item	*get_desc(t_array *array, int index)
+static t_item	*get_desc(t_array *arr, int index)
 {
 	int		i;
-	t_item	*item;
+	t_item	*loop;
 
 	i = -1;
-	item = array->last;
-	while (item && i != index)
+	loop = arr->last;
+	while (loop && i != index)
 	{
-		item = item->prev;
+		loop = loop->prev;
 		i--;
 	}
 	if (i == index)
-		return (item);
+		return (loop);
 	return (0);
 }
 
-t_item	*item_get(t_array *array, int index)
+t_item	*item_get(t_array *arr, int index)
 {
-	if (!array)
+	if (!arr)
 		return (0);
 	if (index >= 0)
-		return (get_asc(array, index));
-	return (get_desc(array, index));
+		return (get_asc(arr, index));
+	return (get_desc(arr, index));
 }

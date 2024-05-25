@@ -6,20 +6,20 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 07:42:32 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:22:00 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 #include <stdlib.h>
 
-long	*c_long(long value)
+long	*c_long(long val)
 {
-	long	*_c_long;
+	long	*new;
 
-	_c_long = (long *) malloc(sizeof(long));
-	if (!_c_long)
+	new = (long *) malloc(sizeof(long));
+	if (!new)
 		return (0);
-	*_c_long = value;
-	return (_c_long);
+	*new = val;
+	return (new);
 }

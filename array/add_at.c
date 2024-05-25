@@ -6,59 +6,59 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 21:14:49 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 11:27:06 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:19:59 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 
-static void	attach(t_array *array, t_item *item, t_item *after)
+static void	attach(t_array *arr, t_item *it, t_item *after)
 {
-	if (after == array->first)
-		array->first = item;
+	if (after == arr->first)
+		arr->first = it;
 	if (after->prev)
 	{
-		after->prev->next = item;
-		item->prev = after->prev;
+		after->prev->next = it;
+		it->prev = after->prev;
 	}
-	item->next = after;
-	after->prev = item;
+	it->next = after;
+	after->prev = it;
 }
 
-static t_item	*detach(t_array *array, t_item *item)
+static t_item	*detach(t_array *arr, t_item *it)
 {
-	if (!item)
+	if (!it)
 		return (0);
-	if (array->first == item)
-		array->first = item->next;
-	if (array->last == item)
-		array->last = item->prev;
-	if (item->prev)
-		item->prev->next = item->next;
-	if (item->next)
-		item->next->prev = item->prev;
-	item->next = 0;
-	item->prev = 0;
-	return (item);
+	if (arr->first == it)
+		arr->first = it->next;
+	if (arr->last == it)
+		arr->last = it->prev;
+	if (it->prev)
+		it->prev->next = it->next;
+	if (it->next)
+		it->next->prev = it->prev;
+	it->next = 0;
+	it->prev = 0;
+	return (it);
 }
 
-void	array_add_at(t_array *array, t_item *item, int at)
+void	array_add_at(t_array *arr, t_item *it, int at)
 {
 	int		i;
-	t_item	*array_item;
+	t_item	*elt;
 
-	if (!array || !item || at < 0 || at >= array_size(array))
+	if (!arr || !it || at < 0 || at >= array_size(arr))
 		return ;
 	i = 0;
-	item = detach(array, item);
-	array_item = array->first;
-	while (array_item && i != at)
+	it = detach(arr, it);
+	elt = arr->first;
+	while (elt && i != at)
 	{
-		array_item = array_item->next;
+		elt = elt->next;
 		i++;
 	}
-	if (!array_item)
-		array_add(array, item);
+	if (!elt)
+		array_add(arr, it);
 	else
-		attach(array, item, array_item);
+		attach(arr, it, elt);
 }

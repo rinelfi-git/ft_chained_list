@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array.h                                             :+:      :+:    :+:   */
+/*   array.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:26:03 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 07:52:08 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:25:41 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,23 @@ struct s_array
 };
 struct s_item
 {
-	void	*value;
-	void	(*f_value)(void *);
+	void	*val;
+	void	(*del)(void *);
 	t_item	*prev;
 	t_item	*next;
 };
-t_array	*array_create(t_item *item);
-t_item	*item_create(void	*value, void (*f_value)(void *));
-int		array_size(t_array *array);
-int		item_index_of(t_array *array, t_item *item);
-int		array_add(t_array *array, t_item *item);
-void	array_add_at(t_array *array, t_item *item, int at);
-t_item	*item_get(t_array *array, int index);
-t_item	*item_remove(t_array *array, int index);
-void	array_destruct(t_array *array);
-void	item_destruct(t_item *item);
-int		*c_int(int value);
-long	*c_long(long value);
-char	*c_char(char value);
+t_array	*array_create(t_item *it);
+t_item	*item_create(void	*val, void (*del)(void *));
+int		array_size(t_array *arr);
+int		item_index_of(t_array *arr, t_item *it);
+int		array_add(t_array *arr, t_item *it);
+void	array_add_at(t_array *arr, t_item *it, int at);
+t_item	*item_get(t_array *arr, int index);
+t_item	*item_remove(t_array *arr, int index);
+void	array_destruct(t_array *arr);
+void	item_destruct(t_item *it);
+int		*c_int(int val);
+long	*c_long(long val);
+char	*c_char(char val);
+void	array_for_each(t_array *arr, void (*f)(int, t_item *));
 #endif

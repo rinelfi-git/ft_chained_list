@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_char.c                                           :+:      :+:    :+:   */
+/*   for_each.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 07:42:32 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:21:32 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/25 20:10:44 by erijania          #+#    #+#             */
+/*   Updated: 2024/05/25 20:20:52 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
-#include <stdlib.h>
 
-char	*c_char(char val)
+void	array_for_each(t_array *arr, void (*f)(int, t_item *))
 {
-	char	*new;
+	t_item	*loop;
+	int		i;
 
-	new = (char *) malloc(sizeof(char));
-	if (!new)
-		return (0);
-	*new = val;
-	return (new);
+	loop = arr->first;
+	i = 0;
+	while (loop)
+	{
+		f(i++, loop);
+		loop = loop->next;
+	}
 }

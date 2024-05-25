@@ -6,27 +6,27 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 12:33:46 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 13:49:44 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/25 20:23:53 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../array.h"
 
-int	item_index_of(t_array *array, t_item *item)
+int	item_index_of(t_array *arr, t_item *it)
 {
-	int		index;
+	int		i;
 	t_item	*loop;
 
-	if (!array || !item)
+	if (!arr || !it)
 		return (-1);
-	index = 0;
-	loop = array->first;
-	while (loop && loop != item)
+	i = 0;
+	loop = arr->first;
+	while (loop && loop != it)
 	{
 		loop = loop->next;
-		index++;
+		i++;
 	}
-	if (loop == item)
-		return (index);
+	if (loop == it)
+		return (i);
 	return (-1);
 }
