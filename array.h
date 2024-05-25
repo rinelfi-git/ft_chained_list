@@ -30,6 +30,7 @@ struct s_item
 t_array	*array_create(t_item *item);
 t_item	*item_create(void	*value, void (*f_value)(void *));
 int		array_size(t_array *array);
+int		item_index_of(t_array *array, t_item *item);
 int		array_add(t_array *array, t_item *item);
 void	array_add_at(t_array *array, t_item *item, int at);
 t_item	*item_get(t_array *array, int index);
