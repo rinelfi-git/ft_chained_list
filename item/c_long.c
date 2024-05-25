@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   c_long.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 19:37:19 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 07:41:13 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/25 07:42:32 by erijania          #+#    #+#             */
+/*   Updated: 2024/05/25 07:53:31 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../list.h"
 #include <stdlib.h>
 
-t_item	*item_create(void *value, void (*f_value)(void *))
+long	*c_long(long value)
 {
-	t_item	*_item_create;
+	long	*_c_long;
 
-	_item_create = (t_item *) malloc(sizeof(t_item));
-	if (!_item_create)
+	_c_long = (long *) malloc(sizeof(long));
+	if (!_c_long)
 		return (0);
-	_item_create->value = value;
-	_item_create->f_value = 0;
-	_item_create->prev = 0;
-	_item_create->next = 0;
-	if (f_value)
-		_item_create->f_value = f_value;
-	return (_item_create);
+	*_c_long = value;
+	return (_c_long);
 }

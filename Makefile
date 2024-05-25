@@ -8,6 +8,9 @@ SOURCES	=	item/create.c \
 			item/get.c \
 			item/remove.c \
 			item/destruct.c \
+			item/c_int.c \
+			item/c_long.c \
+			item/c_char.c \
 			list/add_at.c \
 			list/create.c \
 			list/size.c \
