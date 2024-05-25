@@ -7,9 +7,11 @@ DEL		=	rm -rf
 SOURCES	=	item/create.c \
 			item/get.c \
 			item/remove.c \
+			item/destruct.c \
 			list/add_at.c \
 			list/create.c \
 			list/size.c \
+			list/destruct.c \
 			list/add.c
 OBJECTS	=	$(SOURCES:.c=.o)
 
