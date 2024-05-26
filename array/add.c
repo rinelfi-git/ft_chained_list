@@ -6,7 +6,7 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:19:46 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:11:07 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	array_add(t_array *arr, t_item *it)
 		it->next = 0;
 		arr->last = it;
 	}
+	arr->size++;
 	return (1);
 }

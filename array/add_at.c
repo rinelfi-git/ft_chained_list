@@ -6,7 +6,7 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 21:14:49 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:19:59 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:10:54 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	array_add_at(t_array *arr, t_item *it, int at)
 	if (!arr || !it || at < 0 || at >= array_size(arr))
 		return ;
 	i = 0;
+	if (item_index_of(arr, it) >= 0)
+		arr->size--;
 	it = detach(arr, it);
 	elt = arr->first;
 	while (elt && i != at)
@@ -57,6 +59,7 @@ void	array_add_at(t_array *arr, t_item *it, int at)
 		elt = elt->next;
 		i++;
 	}
+	arr->size++;
 	if (!elt)
 		array_add(arr, it);
 	else

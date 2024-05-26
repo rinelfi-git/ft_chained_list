@@ -6,7 +6,7 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:57:47 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:25:08 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:17:25 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static t_item	*remove_asc(t_array *arr, int index)
 	}
 	if (i != index)
 		return (0);
+	arr->size--;
 	return (detach(arr, loop));
 }
 
@@ -60,6 +61,7 @@ static t_item	*remove_desc(t_array *arr, int index)
 	}
 	if (i != index)
 		return (0);
+	arr->size--;
 	return (detach(arr, loop));
 }
 

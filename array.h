@@ -6,7 +6,7 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:26:03 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:25:41 by erijania         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:08:02 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct s_array	t_array;
 typedef struct s_item	t_item;
 struct s_array
 {
+	int		size;
 	t_item	*first;
 	t_item	*last;
 };
