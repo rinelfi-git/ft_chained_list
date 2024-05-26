@@ -4,20 +4,20 @@ AR		=	ar rcs
 NAME	=	libarray.a
 HEADER	=	array.h
 DEL		=	rm -rf
-SOURCES	=	item/create.c \
-			item/get.c \
-			item/remove.c \
-			item/destruct.c \
-			item/c_int.c \
-			item/c_long.c \
-			item/c_char.c \
-			item/index_of.c \
-			array/add_at.c \
-			array/create.c \
-			array/size.c \
-			array/destruct.c \
-			array/for_each.c \
-			array/add.c
+SOURCES	=	item.d/create.c \
+			item.d/get.c \
+			item.d/remove.c \
+			item.d/destruct.c \
+			item.d/c_int.c \
+			item.d/c_long.c \
+			item.d/c_char.c \
+			item.d/index_of.c \
+			array.d/add_at.c \
+			array.d/create.c \
+			array.d/size.c \
+			array.d/destruct.c \
+			array.d/for_each.c \
+			array.d/add.c
 OBJECTS	=	$(SOURCES:.c=.o)
 
 all : $(NAME)
