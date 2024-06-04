@@ -6,16 +6,16 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:27:58 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:56:02 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array.h"
 
-static t_item	*get_asc(t_array *arr, int index)
+static t_node	*get_asc(t_array *arr, int index)
 {
 	int		i;
-	t_item	*loop;
+	t_node	*loop;
 
 	i = 0;
 	loop = arr->first;
@@ -29,10 +29,10 @@ static t_item	*get_asc(t_array *arr, int index)
 	return (0);
 }
 
-static t_item	*get_desc(t_array *arr, int index)
+static t_node	*get_desc(t_array *arr, int index)
 {
 	int		i;
-	t_item	*loop;
+	t_node	*loop;
 
 	i = -1;
 	loop = arr->last;
@@ -46,7 +46,7 @@ static t_item	*get_desc(t_array *arr, int index)
 	return (0);
 }
 
-t_item	*item_get(t_array *arr, int index)
+t_node	*node_get(t_array *arr, int index)
 {
 	if (!arr)
 		return (0);

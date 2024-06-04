@@ -6,15 +6,15 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:51:53 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array.h"
 
-int	array_add(t_array *arr, t_item *it)
+int	array_add(t_array *arr, t_node *it)
 {
-	t_item	*elt;
+	t_node	*elt;
 
 	if (!arr || !it)
 		return (0);

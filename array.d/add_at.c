@@ -6,13 +6,13 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 21:14:49 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:55:49 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array.h"
 
-static void	attach(t_array *arr, t_item *it, t_item *after)
+static void	attach(t_array *arr, t_node *it, t_node *after)
 {
 	if (after == arr->first)
 		arr->first = it;
@@ -25,7 +25,7 @@ static void	attach(t_array *arr, t_item *it, t_item *after)
 	after->prev = it;
 }
 
-static t_item	*detach(t_array *arr, t_item *it)
+static t_node	*detach(t_array *arr, t_node *it)
 {
 	if (!it)
 		return (0);
@@ -42,15 +42,15 @@ static t_item	*detach(t_array *arr, t_item *it)
 	return (it);
 }
 
-void	array_add_at(t_array *arr, t_item *it, int at)
+void	array_add_at(t_array *arr, t_node *it, int at)
 {
 	int		i;
-	t_item	*elt;
+	t_node	*elt;
 
 	if (!arr || !it || at < 0 || at >= array_size(arr))
 		return ;
 	i = 0;
-	if (item_index_of(arr, it) >= 0)
+	if (node_index_of(arr, it) >= 0)
 		arr->size--;
 	it = detach(arr, it);
 	elt = arr->first;

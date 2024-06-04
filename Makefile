@@ -4,20 +4,15 @@ AR		=	ar rcs
 NAME	=	libarray.a
 HEADER	=	array.h
 DEL		=	rm -rf
-SOURCES	=	item.d/create.c \
-			item.d/get.c \
-			item.d/remove.c \
-			item.d/destruct.c \
-			item.d/c_int.c \
-			item.d/c_long.c \
-			item.d/c_char.c \
-			item.d/index_of.c \
+SOURCES	=	node.d/get.c \
+			node.d/index_of.c \
+			node.d/remove.c \
 			array.d/add_at.c \
+			array.d/add.c \
 			array.d/create.c \
-			array.d/size.c \
 			array.d/destruct.c \
 			array.d/for_each.c \
-			array.d/add.c
+			array.d/size.c
 OBJECTS	=	$(SOURCES:.c=.o)
 
 all : $(NAME)
@@ -32,7 +27,7 @@ clean :
 	$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
-	$(CC) $(CFLAGS) main.c -L. -larray
+	$(CC) $(CFLAGS) -I./includes.d main.c -L. -larray
 
 fclean : clean
 	$(DEL) $(NAME)

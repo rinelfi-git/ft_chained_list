@@ -6,7 +6,7 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 06:58:18 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:01:33 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 void	array_destruct(t_array *arr)
 {
-	t_item	*elt;
+	t_node	*elt;
 
 	if (!arr)
 		return ;
-	elt = item_remove(arr, 0);
+	elt = node_remove(arr, 0);
 	while (elt)
 	{
-		item_destruct(elt);
-		elt = item_remove(arr, 0);
+		node_destruct(elt);
+		elt = node_remove(arr, 0);
 	}
 	free(arr);
 	arr = 0;

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   index_of.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 19:37:19 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
+/*   Created: 2024/05/25 12:33:46 by erijania          #+#    #+#             */
+/*   Updated: 2024/06/04 16:55:49 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array.h"
-#include <stdlib.h>
 
-t_item	*item_create(void *val, void (*del)(void *))
+int	node_index_of(t_array *arr, t_node *it)
 {
-	t_item	*new;
+	int		i;
+	t_node	*loop;
 
-	new = (t_item *) malloc(sizeof(t_item));
-	if (!new)
-		return (0);
-	new->val = val;
-	new->del = 0;
-	new->prev = 0;
-	new->next = 0;
-	if (del)
-		new->del = del;
-	return (new);
+	if (!arr || !it)
+		return (-1);
+	i = 0;
+	loop = arr->first;
+	while (loop && loop != it)
+	{
+		loop = loop->next;
+		i++;
+	}
+	if (loop == it)
+		return (i);
+	return (-1);
 }

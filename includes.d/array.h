@@ -6,40 +6,41 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:26:03 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/26 10:08:02 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:38:22 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_H
 # define ARRAY_H
 
-typedef struct s_array	t_array;
-typedef struct s_item	t_item;
+typedef struct s_array		t_array;
+typedef struct s_node		t_node;
+typedef struct s_integer	t_integer;
 struct s_array
 {
 	int		size;
-	t_item	*first;
-	t_item	*last;
+	t_node	*first;
+	t_node	*last;
 };
-struct s_item
+struct s_node
 {
-	void	*val;
-	void	(*del)(void *);
-	t_item	*prev;
-	t_item	*next;
+	t_node	*prev;
+	t_node	*next;
 };
-t_array	*array_create(t_item *it);
-t_item	*item_create(void	*val, void (*del)(void *));
-int		array_size(t_array *arr);
-int		item_index_of(t_array *arr, t_item *it);
-int		array_add(t_array *arr, t_item *it);
-void	array_add_at(t_array *arr, t_item *it, int at);
-t_item	*item_get(t_array *arr, int index);
-t_item	*item_remove(t_array *arr, int index);
-void	array_destruct(t_array *arr);
-void	item_destruct(t_item *it);
-int		*c_int(int val);
-long	*c_long(long val);
-char	*c_char(char val);
-void	array_for_each(t_array *arr, void (*f)(int, t_item *));
+
+struct s_integer
+{
+	t_node	parent;
+	int		val;
+};
+t_array	*array_create(t_node *n);
+int		array_size(t_array *array);
+int		node_index_of(t_array *array, t_node *n);
+int		array_add(t_array *array, t_node *n);
+void	array_add_at(t_array *array, t_node *n, int at);
+t_node	*node_get(t_array *array, int index);
+t_node	*node_remove(t_array *array, int index);
+void	array_destruct(t_array *array);
+void	node_destruct(t_node *n);
+void	array_for_each(t_array *array, void (*callback)(int, t_node *));
 #endif
