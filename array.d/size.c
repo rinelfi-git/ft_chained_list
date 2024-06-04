@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:10:04 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/26 10:15:26 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "array.h"
 
 int	array_size(t_array *arr)
 {

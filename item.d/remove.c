@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:57:47 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/26 10:17:25 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:45:14 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "array.h"
 
 static t_item	*detach(t_array *arr, t_item *it)
 {

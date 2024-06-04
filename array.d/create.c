@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:48:25 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/26 10:11:21 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "array.h"
 #include <stdlib.h>
 
 t_array	*array_create(t_item *it)

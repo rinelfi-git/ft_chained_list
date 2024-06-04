@@ -23,18 +23,18 @@ OBJECTS	=	$(SOURCES:.c=.o)
 all : $(NAME)
 
 $(NAME)	: $(OBJECTS)
-	@$(AR) $(NAME) $(OBJECTS)
+	$(AR) $(NAME) $(OBJECTS)
 
 %.o	: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -I./includes.d -o $@ -c $<
 
 clean :
-	@$(DEL) $(OBJECTS)
+	$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
 	$(CC) $(CFLAGS) main.c -L. -larray
 
 fclean : clean
-	@$(DEL) $(NAME)
+	$(DEL) $(NAME)
 
 re	: fclean all

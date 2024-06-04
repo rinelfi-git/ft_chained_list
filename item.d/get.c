@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:27:58 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:23:38 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "array.h"
 
 static t_item	*get_asc(t_array *arr, int index)
 {

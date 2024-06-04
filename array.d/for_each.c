@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:10:44 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/25 20:20:52 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "array.h"
 
 void	array_for_each(t_array *arr, void (*f)(int, t_item *))
 {

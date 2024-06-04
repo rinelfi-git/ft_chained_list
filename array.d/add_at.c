@@ -6,11 +6,11 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 21:14:49 by erijania          #+#    #+#             */
-/*   Updated: 2024/05/26 10:10:54 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:45:15 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "array.h"
 
 static void	attach(t_array *arr, t_item *it, t_item *after)
 {
