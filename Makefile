@@ -1,7 +1,7 @@
 CC		=	cc
 CFLAGS	=	-Werror -Wextra -Wall
 AR		=	ar rcs
-NAME	=	libarray.a
+NAME	=	libvector.a
 HEADER	=	vector.h
 DEL		=	rm -rf
 SOURCES	=	node.d/detach.c \
