@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destruct.c                                         :+:      :+:    :+:   */
+/*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 06:58:18 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/05 20:52:16 by erijania         ###   ########.fr       */
+/*   Created: 2024/06/05 20:56:46 by erijania          #+#    #+#             */
+/*   Updated: 2024/06/05 21:25:14 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
-#include <stdlib.h>
 
-void	vec_destruct(t_vector *arr)
+t_node	*node_find(t_vector *self, int (*eval)(int, t_node *))
 {
-	t_node	*elt;
+	t_node	*found;
+	int		index;
 
-	if (!arr)
-		return ;
-	elt = node_remove(arr, 0);
-	while (elt)
-	{
-		if (elt->destruct)
-			elt->destruct(elt);
-		elt = node_remove(arr, 0);
-	}
-	free(arr);
-	arr = 0;
+	if (!self || !self->first)
+		return (0);
+	found = self->first;
+	index = 0;
+	while (found && !eval(index++, found))
+		found = found->next;
+	return (found);
 }

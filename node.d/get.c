@@ -6,13 +6,13 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:27:58 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:56:02 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:52:16 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array.h"
+#include "vector.h"
 
-static t_node	*get_asc(t_array *arr, int index)
+static t_node	*get_asc(t_vector *arr, int index)
 {
 	int		i;
 	t_node	*loop;
@@ -29,7 +29,7 @@ static t_node	*get_asc(t_array *arr, int index)
 	return (0);
 }
 
-static t_node	*get_desc(t_array *arr, int index)
+static t_node	*get_desc(t_vector *arr, int index)
 {
 	int		i;
 	t_node	*loop;
@@ -46,7 +46,7 @@ static t_node	*get_desc(t_array *arr, int index)
 	return (0);
 }
 
-t_node	*node_get(t_array *arr, int index)
+t_node	*node_get(t_vector *arr, int index)
 {
 	if (!arr)
 		return (0);

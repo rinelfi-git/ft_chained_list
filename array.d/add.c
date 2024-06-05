@@ -6,35 +6,35 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:15:42 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:51:53 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/05 21:39:55 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array.h"
+#include "vector.h"
 
-int	array_add(t_array *arr, t_node *it)
+int	vec_add(t_vector *self, t_node *n)
 {
 	t_node	*elt;
 
-	if (!arr || !it)
+	if (!self || !n)
 		return (0);
-	elt = arr->first;
-	while (elt != arr->last && elt != it)
+	elt = self->first;
+	while (elt != self->last && elt != n)
 		elt = elt->next;
-	if (elt == it)
+	if (elt == n)
 		return (0);
 	if (!elt)
 	{
-		arr->first = it;
-		arr->last = it;
+		self->first = n;
+		self->last = n;
 	}
 	else
 	{
-		elt->next = it;
-		it->prev = elt;
-		it->next = 0;
-		arr->last = it;
+		elt->next = n;
+		n->prev = elt;
+		n->next = 0;
+		self->last = n;
 	}
-	arr->size++;
+	self->size++;
 	return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:10:04 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 16:51:53 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:52:16 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array.h"
+#include "vector.h"
 
-int	array_size(t_array *arr)
+int	vec_size(t_vector *arr)
 {
 	if (!arr)
 		return (0);

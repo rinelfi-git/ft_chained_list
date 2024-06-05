@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destruct.c                                         :+:      :+:    :+:   */
+/*   filter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 06:58:18 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/05 20:52:16 by erijania         ###   ########.fr       */
+/*   Created: 2024/06/05 21:25:34 by erijania          #+#    #+#             */
+/*   Updated: 2024/06/05 22:11:58 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
-#include <stdlib.h>
 
-void	vec_destruct(t_vector *arr)
+t_vector	*vec_filter(t_vector *src, int (*eval)(int, t_node *))
 {
-	t_node	*elt;
+	t_vector	*filtered;
+	t_node		*loop;
+	int			i;
 
-	if (!arr)
-		return ;
-	elt = node_remove(arr, 0);
-	while (elt)
+	if (!src)
+		return (0);
+	filtered = vec_new(0);
+	loop = src->first;
+	i = 0;
+	while (loop)
 	{
-		if (elt->destruct)
-			elt->destruct(elt);
-		elt = node_remove(arr, 0);
+		if (eval(i++, loop))
+			vec_add(filtered, loop->clone(loop));
+		loop = loop->next;
 	}
-	free(arr);
-	arr = 0;
+	return (filtered);
 }

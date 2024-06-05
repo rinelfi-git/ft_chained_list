@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destruct.c                                         :+:      :+:    :+:   */
+/*   detach.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 06:58:18 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/05 20:52:16 by erijania         ###   ########.fr       */
+/*   Created: 2024/06/05 21:37:26 by erijania          #+#    #+#             */
+/*   Updated: 2024/06/05 21:38:53 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
-#include <stdlib.h>
 
-void	vec_destruct(t_vector *arr)
+t_node	*node_detach(t_vector *self, t_node *n)
 {
-	t_node	*elt;
-
-	if (!arr)
-		return ;
-	elt = node_remove(arr, 0);
-	while (elt)
-	{
-		if (elt->destruct)
-			elt->destruct(elt);
-		elt = node_remove(arr, 0);
-	}
-	free(arr);
-	arr = 0;
+	if (!n)
+		return (0);
+	if (self->first == n)
+		self->first = n->next;
+	if (self->last == n)
+		self->last = n->prev;
+	if (n->prev)
+		n->prev->next = n->next;
+	if (n->next)
+		n->next->prev = n->prev;
+	n->next = 0;
+	n->prev = 0;
+	return (n);
 }

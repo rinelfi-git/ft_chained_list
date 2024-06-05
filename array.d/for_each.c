@@ -6,13 +6,13 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:10:44 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/04 17:03:49 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/05 21:04:30 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array.h"
+#include "vector.h"
 
-void	array_for_each(t_array *arr, void (*callback)(int, t_node *))
+void	vec_for_each(t_vector *arr, void (*func)(int, t_node *))
 {
 	t_node	*loop;
 	int		i;
@@ -21,7 +21,7 @@ void	array_for_each(t_array *arr, void (*callback)(int, t_node *))
 	i = 0;
 	while (loop)
 	{
-		callback(i++, loop);
+		func(i++, loop);
 		loop = loop->next;
 	}
 }

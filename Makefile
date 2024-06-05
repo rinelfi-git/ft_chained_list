@@ -2,15 +2,19 @@ CC		=	cc
 CFLAGS	=	-Werror -Wextra -Wall
 AR		=	ar rcs
 NAME	=	libarray.a
-HEADER	=	array.h
+HEADER	=	vector.h
 DEL		=	rm -rf
-SOURCES	=	node.d/get.c \
+SOURCES	=	node.d/detach.c \
+			node.d/find.c \
+			node.d/get.c \
 			node.d/index_of.c \
+			node.d/new.c \
 			node.d/remove.c \
 			array.d/add_at.c \
 			array.d/add.c \
 			array.d/create.c \
 			array.d/destruct.c \
+			array.d/filter.c \
 			array.d/for_each.c \
 			array.d/size.c
 OBJECTS	=	$(SOURCES:.c=.o)
@@ -27,7 +31,7 @@ clean :
 	$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
-	$(CC) $(CFLAGS) -I./includes.d main.c -L. -larray
+	$(CC) $(CFLAGS) -I./includes.d main.c -L. -larray -o main
 
 fclean : clean
 	$(DEL) $(NAME)
