@@ -10,13 +10,13 @@ SOURCES	=	node.d/detach.c \
 			node.d/index_of.c \
 			node.d/new.c \
 			node.d/remove.c \
-			array.d/add_at.c \
-			array.d/add.c \
-			array.d/create.c \
-			array.d/destruct.c \
-			array.d/filter.c \
-			array.d/for_each.c \
-			array.d/size.c
+			vector.d/add_at.c \
+			vector.d/add.c \
+			vector.d/create.c \
+			vector.d/destruct.c \
+			vector.d/filter.c \
+			vector.d/for_each.c \
+			vector.d/size.c
 OBJECTS	=	$(SOURCES:.c=.o)
 
 all : $(NAME)
