@@ -6,7 +6,7 @@
 /*   By: erijania <erijania@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:29:07 by erijania          #+#    #+#             */
-/*   Updated: 2024/06/06 10:44:18 by erijania         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:48:12 by erijania         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ static t_node	*str_clone(t_node *self)
 
 static void	str_destruct(t_node *self)
 {
-	free(self);
+	t_str_node	*cast;
+
+	cast = (t_str_node *)self;
+	free(cast->value);
+	free(cast);
 }
 
 t_str_node	*str_new(const char *value)
