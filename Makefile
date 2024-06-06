@@ -35,7 +35,7 @@ clean :
 	$(DEL) $(OBJECTS)
 
 main : main.c $(NAME)
-	$(CC) $(CFLAGS) -I./includes.d main.c -L. -larray -o main
+	$(CC) $(CFLAGS) -I./includes.d main.c -L. -lvector -o main
 
 fclean : clean
 	$(DEL) $(NAME)
